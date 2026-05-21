@@ -1,3 +1,4 @@
+import proImg from "../assets/pro.jpg";
 
 
 export default function Footer() {
@@ -9,7 +10,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="footer-logo">
-        <img src="/src/assets/profile 1.jpg" alt="Logo" className="footer-logo-img" />
+        <img src={proImg} alt="Logo" className="footer-logo-img" />
       </div>
       <div className="footer-copy">© 2025 Abdallah Fathi. All rights reserved.</div>
       <button className="top-btn" onClick={scrollToTop}>
