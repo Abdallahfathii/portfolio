@@ -1,10 +1,11 @@
-import proImg from "../assets/pro.jpg";
+
+import proImg from "../assets/profile 1.jpg";
 
 
 export default function Footer() {
   const scrollToTop = () => {
     window.location.hash = "home";
-    document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (

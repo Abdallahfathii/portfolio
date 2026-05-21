@@ -1,4 +1,4 @@
-import proImg from "../assets/pro.jpg";
+import proImg from "../assets/profile 1.jpg";
 
 export default function About() {
   return (
