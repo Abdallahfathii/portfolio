@@ -62,7 +62,7 @@ export default function Navbar({ isDark, toggleTheme }) {
       <div className={`overlay ${menuOpen ? "active" : ""}`} onClick={() => setMenuOpen(false)} />
       <nav id="navbar" ref={navRef}>
       <div className="nav-logo" onClick={() => scrollTo("home")}>
-        <img src="/src/assets/profile 1.jpg" alt="Logo" className="nav-logo-img" />
+        <img src={proImg} alt="Logo" className="nav-logo-img" />
       </div>
       <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
         {sections.map((sec) => (
