@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --purple: #A855F7;
+  --purple2: #C084FC;
+  --cyan: #4ECDC4;
+  --bg: #080A10;
+  --bg2: #0D0F18;
+  --bg3: #111420;
+  --card: #13151F;
+  --card2: #181A26;
+  --text: #F0EDE6;
+  --muted: #7A7A8A;
+  --border: rgba(255, 255, 255, 0.07);
+  --nav-bg: rgba(8, 10, 16, 0.88);
+  --shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] {
+  --bg: #F2F0EA;
+  --bg2: #E8E5DC;
+  --bg3: #DEDAD0;
+  --card: #FFFFFF;
+  --card2: #F8F6F0;
+  --text: #1A1826;
+  --muted: #6A6878;
+  --border: rgba(0, 0, 0, 0.09);
+  --nav-bg: rgba(242, 240, 234, 0.90);
+  --shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  transition: background 0.4s, color 0.4s;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+}
