@@ -22,7 +22,6 @@ export default function Navbar({ isDark, toggleTheme }) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
-            window.history.replaceState(null, "", `#${entry.target.id}`);
           }
         });
       },
@@ -35,22 +34,12 @@ export default function Navbar({ isDark, toggleTheme }) {
     });
 
     return () => observer.disconnect();
-  }, );
-
-  useEffect(() => {
-    const hash = window.location.hash.replace("#", "");
-    if (hash && sections.includes(hash)) {
-      setTimeout(() => {
-        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    }
-  },);
+  }, []);
 
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
-      window.history.replaceState(null, "", `#${id}`);
     }
     setMenuOpen(false);
   };
