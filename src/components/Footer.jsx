@@ -4,8 +4,8 @@ import proImg from "../assets/profile 1.jpg";
 
 export default function Footer() {
   const scrollToTop = () => {
-    window.location.hash = "home";
     window.scrollTo({ top: 0, behavior: "smooth" });
+    window.history.replaceState(null, "", "#home");
   };
 
   return (

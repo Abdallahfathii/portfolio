@@ -235,6 +235,7 @@ nav.scrolled {
 section {
   padding: 8rem 5%;
   border-top: 1px solid var(--border);
+  scroll-margin-top: 80px;
 }
 
 .section-label {

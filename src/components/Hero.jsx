@@ -39,12 +39,10 @@ export default function Hero() {
   }, [charIndex, isDeleting, wordIndex]);
 
   const scrollTo = (id) => {
-    window.location.hash = id;
     const el = document.getElementById(id);
     if (el) {
-      const navHeight = 80;
-      const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
-      window.scrollTo({ top, behavior: "smooth" });
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState(null, "", `#${id}`);
     }
   };
 
