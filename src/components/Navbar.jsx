@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import proImg from "../assets/pro.jpg";
+
 
 export default function Navbar({ isDark, toggleTheme }) {
   const navRef = useRef(null);
@@ -34,7 +34,7 @@ export default function Navbar({ isDark, toggleTheme }) {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, );
 
   useEffect(() => {
     const hash = window.location.hash.replace("#", "");
@@ -43,7 +43,7 @@ export default function Navbar({ isDark, toggleTheme }) {
         document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
       }, 100);
     }
-  }, []);
+  },);
 
   const scrollTo = (id) => {
     window.location.hash = id;
@@ -56,7 +56,7 @@ export default function Navbar({ isDark, toggleTheme }) {
       <div className={`overlay ${menuOpen ? "active" : ""}`} onClick={() => setMenuOpen(false)} />
       <nav id="navbar" ref={navRef}>
       <div className="nav-logo" onClick={() => scrollTo("home")}>
-        <img src={proImg} alt="Logo" className="nav-logo-img" />
+        <img src="/src/assets/profile 1.jpg" alt="Logo" className="nav-logo-img" />
       </div>
       <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
         {sections.map((sec) => (
