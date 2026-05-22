@@ -69,12 +69,20 @@ export default function Contact() {
             >
               💻 GitHub
             </a>
-            <a href="#" className="social-link">
+            <a href="https://www.linkedin.com/in/abdallah-fathy-52445b314/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link">
               💼 LinkedIn
             </a>
-            <a href="#" className="social-link">
-              🐦 Twitter
+            <a href="https://web.whatsapp.com/send?phone=+201055978799"
+              
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link">
+              📱 WhatsApp
             </a>
+            
           </div>
           <div className="cta-bar">
             <button className="btn-gold" onClick={copyEmail} style={{ fontSize: ".9rem" }}>

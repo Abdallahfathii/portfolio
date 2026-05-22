@@ -12,14 +12,14 @@ export default function About() {
             Crafting Digital <em>Experiences</em>
           </h2>
           <p className="rv d2">
-            I'm a Full Stack Developer based in Sadat City, Egypt, with a B.Sc. in Information Systems and Technologies. I specialize in building modern, performant web applications end-to-end.
+            I'm a Full Stack Developer based in Egypt, with a Bachelor's in Information Systems and Technologies. I specialize in building modern, performant web applications end-to-end.
           </p>
           <p className="rv d3">
             My stack spans React, Next.js, Node.js, MongoDB, and PostgreSQL. I'm passionate about clean architecture, smooth UI, and shipping real products that solve real problems.
           </p>
           <div className="skill-tags rv d4">
             <span className="tag">Egypt 🇪🇬</span>
-            <span className="tag">B.Sc. Info Systems</span>
+            <span className="tag">Bachelor's in Info Systems</span>
             <span className="tag">Open to Work</span>
             <span className="tag">Full Stack</span>
             <span className="tag">6+ Projects</span>
