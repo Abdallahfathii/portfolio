@@ -75,13 +75,51 @@ export default function Contact() {
               className="social-link">
               💼 LinkedIn
             </a>
-            <a href="https://web.whatsapp.com/send?phone=+201055978799"
-              
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link">
-              📱 WhatsApp
-            </a>
+            <a href="https://wa.me/201055978799"
+                onClick={(e) => {
+                  // Check if it's likely a mobile browser
+                  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                  if (isMobile) {
+                    // For mobile, let the wa.me link handle opening the app
+                    return true;
+                  } else {
+                    // For desktop, try to open WhatsApp desktop app via custom protocol
+                    e.preventDefault();
+                    const phoneNumber = '201055978799';
+                    const whatsappAppUrl = `whatsapp://send?phone=${phoneNumber}`;
+                    const whatsappWebUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}`;
+                    
+                    // Try to open the desktop app
+                    const whatsappAppWindow = window.open(whatsappAppUrl, '_blank');
+                    
+                    // If the window fails to open (popup blocked) or we can't detect, fallback to web after a short delay
+                    if (!whatsappAppWindow || whatsappAppWindow.closed || typeof whatsappAppWindow.closed=='undefined') {
+                      // Likely blocked or not supported, go to web
+                      window.location.href = whatsappWebUrl;
+                    } else {
+                      // Window opened successfully, but we need to check if it actually redirected to the app
+                      // Since we can't reliably detect, we'll set a timeout to redirect to web if the app doesn't respond
+                      setTimeout(() => {
+                        if (document.hidden || !whatsappAppWindow) {
+                          // User likely didn't have the app, redirect to web
+                          window.location.href = whatsappWebUrl;
+                        }
+                      }, 2500);
+                    }
+                    return false;
+                  }
+                }}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link">
+                📱 WhatsApp
+              </a>
+              <a href="https://t.me/01144532613"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="social-link">
+                 💬 Telegram
+               </a>
             
           </div>
           <div className="cta-bar">
