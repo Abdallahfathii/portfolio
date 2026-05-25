@@ -115,6 +115,39 @@ export default function Contact() {
                 📱 WhatsApp
               </a>
               <a href="https://t.me/01144532613"
+                 onClick={(e) => {
+                   // Check if it's likely a mobile browser
+                   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                   if (isMobile) {
+                     // For mobile, let the t.me link handle opening the app
+                     return true;
+                   } else {
+                     // For desktop, try to open Telegram desktop app via custom protocol
+                     e.preventDefault();
+                     const telegramUsername = '01144532613';
+                     const telegramAppUrl = `tg://resolve?domain=${telegramUsername}`;
+                     const telegramWebUrl = `https://t.me/${telegramUsername}`;
+                     
+                     // Try to open the desktop app
+                     const telegramAppWindow = window.open(telegramAppUrl, '_blank');
+                     
+                     // If the window fails to open (popup blocked) or we can't detect, fallback to web after a short delay
+                     if (!telegramAppWindow || telegramAppWindow.closed || typeof telegramAppWindow.closed=='undefined') {
+                       // Likely blocked or not supported, go to web
+                       window.location.href = telegramWebUrl;
+                     } else {
+                       // Window opened successfully, but we need to check if it actually redirected to the app
+                       // Since we can't reliably detect, we'll set a timeout to redirect to web if the app doesn't respond
+                       setTimeout(() => {
+                         if (document.hidden || !telegramAppWindow) {
+                           // User likely didn't have the app, redirect to web
+                           window.location.href = telegramWebUrl;
+                         }
+                       }, 2500);
+                     }
+                     return false;
+                   }
+                 }}
                  target="_blank"
                  rel="noopener noreferrer"
                  className="social-link">
